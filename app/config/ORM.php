@@ -82,14 +82,18 @@ class ORM
         $this->query = "SELECT $seleccion FROM $this->tabla";
         return $this;
     }
-    public function count($condicion, $valor)
+    public function count($condicion = '', $valor = '')
     {
-        $query = "SELECT COUNT(*) FROM $this->tabla WHERE $condicion = '$valor'";
+        $query = "SELECT COUNT(*) FROM $this->tabla";
+        if ($condicion != '') {
+            $query .= " WHERE $condicion = '$valor'";
+        }
         $consulta = Conexion::obtener_conexion()->prepare($query);
         $consulta->execute();
         $resultado = $consulta->fetchColumn();
         return $resultado;
     }
+
     public function limite($limit = 100, $offset = 0)
     {
         $queryChida = $this->query;

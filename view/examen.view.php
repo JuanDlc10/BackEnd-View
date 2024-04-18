@@ -8,12 +8,11 @@ use controller\Productos;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Examen</title>
 </head>
 
 <body>
-    <h1>Bienvenido <?php echo $_SESSION['usuario'] ?></h1>
-    <h1>Home</h1>
+    <h1>Examen U2 FrontEnd</h1>
     <div>
         <h3>Muestra el total de productos existentes</h3>
         <?php Productos::total(); ?>
@@ -37,12 +36,11 @@ use controller\Productos;
     <div>
         <h3>Elimina 1 producto en base a su id</h3>
         <?php
-            Productos::eliminar_datos(2);
+            Productos::eliminar_datos(1);
             Productos::obtener_datos();
         ?>
     </div>
     <br>
-    <a href="./cerrarSesion">Cerrar sesion</a>
 </body>
 
 </html>
